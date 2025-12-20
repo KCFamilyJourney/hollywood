@@ -14,10 +14,11 @@ function Mainframe(){
     }
 
     //if(!dataLoaded) return <><p>Loading</p></>;
+    //{!dataLoaded && <FetchJFile loadData={loadData}/>}
+    //{dataLoaded && <Mainpage data={data}/>}
 
     return <>
-        {!dataLoaded && <FetchJFile loadData={loadData}/>}
-        {dataLoaded && <Mainpage data={data}/>}
+    <h1>Test</h1>  
         <MyMap />
     </>;
 }

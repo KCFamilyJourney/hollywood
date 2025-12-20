@@ -6,12 +6,12 @@ function MyMap() {
     <APIProvider apiKey={'AIzaSyD9V5o6rzbUAIy121ENmU_wW9bO_ysrpPg'}>
       <div style={{ height: '400px', width: '100%' }}>
         <Map
-          defaultCenter={{ lat: 34.05, lng: -118.24 }}
-          defaultZoom={10}
+          defaultCenter={{ lat: 34.12, lng: -118.33 }}
+          defaultZoom={16}
           gestureHandling={'greedy'}
-          disableDefaultUI={false}
+          disableDefaultUI={true}
         >
-          <Marker position={{ lat: 34.05, lng: -118.24 }} />
+          <Marker position={{ lat: 34.13, lng: -118.336 }} />
         </Map>
       </div>
     </APIProvider>
