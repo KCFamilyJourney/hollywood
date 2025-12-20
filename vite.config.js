@@ -4,6 +4,6 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   //base: '/', // Sets the base to /my-app/
-  base: '/dailybread/', // Sets the base to /my-app/
+  base: '/maps/', // Sets the base to /my-app/
   plugins: [react()],
 })

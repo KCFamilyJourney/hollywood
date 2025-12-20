@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import FetchJFile from './FetchJFile'
 import Mainpage from './Mainpage'
+import MyMap from "./MyMap";
 
 function Mainframe(){
     const [dataLoaded, setDataLoaded] = useState(false);
@@ -17,6 +18,7 @@ function Mainframe(){
     return <>
         {!dataLoaded && <FetchJFile loadData={loadData}/>}
         {dataLoaded && <Mainpage data={data}/>}
+        <MyMap />
     </>;
 }
 
