@@ -3,7 +3,7 @@ import MyHikingMap from "./MyHikingMap"
 
 function Mainframe(){
     return <>
-    <h1>Test</h1>  
+    <h1>Hollywood Sign</h1>  
         <MyHikingMap />
     </>;
 }
