@@ -5,6 +5,8 @@ function Mainframe(){
     return <>
     <h1>Hollywood Sign</h1>  
         <MyHikingMap />
+    <hr></hr>
+    <a href="https://kcfamilyjourney.github.io/home/">Home</a>
     </>;
 }
 
