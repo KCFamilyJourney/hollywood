@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import FetchJFile from './FetchJFile'
-import Mainpage from './Mainpage'
-import MyMap from "./MyMap";
+import MyHikingMap from "./MyHikingMap"
 
 function Mainframe(){
     const [dataLoaded, setDataLoaded] = useState(false);
@@ -19,7 +17,7 @@ function Mainframe(){
 
     return <>
     <h1>Test</h1>  
-        <MyMap />
+        <MyHikingMap />
     </>;
 }
 
