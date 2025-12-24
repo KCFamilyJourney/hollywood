@@ -41,7 +41,7 @@ const MyHikingMap = () => {
   ]);
 
   useEffect(() => {
-  fetch('data.csv')
+  fetch('LakeHollywood.csv')
     .then(response => response.text())
     .then(csvText => {
       Papa.parse(csvText, {
