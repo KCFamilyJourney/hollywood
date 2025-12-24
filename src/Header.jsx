@@ -13,7 +13,7 @@ function Header(props){
                 <img src={sign} alt="Hollywood Sign picture" style={{width: "200px"}}></img>
             </th>
             <th>
-                <h1>{props.title}</h1>  
+                <h1><a href={props.reference}>{props.title}</a></h1>  
             </th>
         </tr>
         </thead>    

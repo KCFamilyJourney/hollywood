@@ -6,6 +6,7 @@ import MyHikingMap from "./MyHikingMap";
 
 function Mainframe(){
 
+    const reference = "https://www.hollywoodsign.org";
     const choices = [ 
         {   name: "Lake Hollywood Trail",
             file: "LakeHollywood.csv",
@@ -28,7 +29,7 @@ function Mainframe(){
 
 
     return <>
-        <Header title={"Hollywood Sign"}/>
+        <Header title={"Hollywood Sign"} reference={reference}/>
         <Stack spacing={1} direction="row">
         {
             choices.map((item, index) => {
@@ -39,7 +40,8 @@ function Mainframe(){
         <hr></hr>
         <MyHikingMap csv={choices[selectedOption].file} mark={choices[selectedOption].pos}/>
         <hr></hr>
-        <a href="https://kcfamilyjourney.github.io/home/">Home</a>
+        <h3><a href="https://www.alltrails.com/parks/us/california/griffith-park">More trails ...</a></h3>
+        <p><a href="https://kcfamilyjourney.github.io/home/">Home</a> | <a href="https://forms.gle/ErqZysKrBFxnL5SV7">Contact Us</a></p>
     </>;
 }
 
