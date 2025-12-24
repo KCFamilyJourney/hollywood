@@ -1,0 +1,35 @@
+/* Table.module.css */
+.container {
+  overflow-x: auto; /* Responsive horizontal scroll */
+  margin: 1rem 0;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse; /* Cleaner borders */
+  font-family: sans-serif;
+  min-width: 400px;
+}
+
+.thead th {
+  background-color: #a8ea94;
+  color: #ffffff;
+  text-align: left;
+  padding: 12px 15px;
+}
+
+.tbody td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #dddddd;
+}
+
+/* Zebra Striping */
+.tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+/* Hover Effect */
+.tbody tr:hover {
+  background-color: #f1f1f1;
+  cursor: pointer;
+}

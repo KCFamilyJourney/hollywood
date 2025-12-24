@@ -67,7 +67,7 @@ useEffect(() => {
 
 return (
     <APIProvider apiKey="AIzaSyD9V5o6rzbUAIy121ENmU_wW9bO_ysrpPg">
-    <div style={{ height: '600px', width: '800px' }}>
+    <div style={{ height: '600px', width: '100%' }}>
       <Map
         defaultCenter={center}
         defaultZoom={15}

@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import MyHikingMap from "./MyHikingMap"
+import Header from "./Header";
+import MyHikingMap from "./MyHikingMap";
 
 function Mainframe(){
     return <>
-    <h1>Hollywood Sign</h1>  
+        <Header title={"Hollywood Sign"}/>
         <MyHikingMap />
-    <hr></hr>
-    <a href="https://kcfamilyjourney.github.io/home/">Home</a>
+        <hr></hr>
+        <a href="https://kcfamilyjourney.github.io/home/">Home</a>
     </>;
 }
 
