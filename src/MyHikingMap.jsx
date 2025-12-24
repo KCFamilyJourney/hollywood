@@ -13,7 +13,7 @@ const HikingRoute = ({ path }) => {
     const polyline = new google.maps.Polyline({
       path: path,
       geodesic: true,
-      strokeColor: '#1fdf2fff', // Red for the trail
+      strokeColor: 'rgba(196, 239, 26, 1)', // Red for the trail
       strokeOpacity: 1.0,
       strokeWeight: 3,
     });
