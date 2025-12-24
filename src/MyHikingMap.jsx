@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import Papa from 'papaparse';
-import { APIProvider, Map, useMap } from '@vis.gl/react-google-maps';
+import { APIProvider, Map, useMap, AdvancedMarker } from '@vis.gl/react-google-maps';
 
 // Custom component to draw the hiking route
 const HikingRoute = ({ path }) => {
@@ -13,7 +13,7 @@ const HikingRoute = ({ path }) => {
     const polyline = new google.maps.Polyline({
       path: path,
       geodesic: true,
-      strokeColor: 'rgba(196, 239, 26, 1)', // Red for the trail
+      strokeColor: 'rgba(242, 104, 12, 1)', // Red for the trail
       strokeOpacity: 1.0,
       strokeWeight: 3,
     });
@@ -25,7 +25,7 @@ const HikingRoute = ({ path }) => {
   return null;
 };
 
-const MyHikingMap = () => {
+const MyHikingMap = (props) => {
 
   const center = { lat: 34.12591308183286, lng: -118.33004291534355 };
 
@@ -41,7 +41,9 @@ const MyHikingMap = () => {
   ]);
 
   useEffect(() => {
-  fetch('LakeHollywood.csv')
+  console.log(`csv: ${props.csv} mark: ${JSON.stringify(props.mark.lat)}`);
+  if(props.csv) {
+  fetch(props.csv)
     .then(response => response.text())
     .then(csvText => {
       Papa.parse(csvText, {
@@ -52,7 +54,8 @@ const MyHikingMap = () => {
         },
       });
     });
-}, []);
+  }
+}, [props.csv]);
 
 useEffect(() => {
   trailPoints.splice(0, trailPoints.length);
@@ -74,6 +77,7 @@ return (
         mapId="f77567173107e0424cdfdbdc"
       >
         {trailCoordinates.length > 0 && <HikingRoute path={trailCoordinates} />}
+        <AdvancedMarker position={{ lat: props.mark.lat, lng: props.mark.lng}} />
       </Map>
       </div>
     </APIProvider>
