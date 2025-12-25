@@ -33,3 +33,5 @@
   background-color: #f1f1f1;
   cursor: pointer;
 }
+
+h1 { font-size: 3rem; } /* 40px if root is 16px */
