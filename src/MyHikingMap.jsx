@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import Papa from 'papaparse';
 import { APIProvider, Map, useMap, AdvancedMarker } from '@vis.gl/react-google-maps';
+import Circle from './Circle';
 
 // Custom component to draw the hiking route
 const HikingRoute = ({ path }) => {
@@ -78,6 +79,17 @@ return (
       >
         {trailCoordinates.length > 0 && <HikingRoute path={trailCoordinates} />}
         <AdvancedMarker position={{ lat: props.mark.lat, lng: props.mark.lng}} />
+        <Circle
+          center={center}
+          radius={150} // Radius in meters
+          strokeColor={'rgba(224, 151, 23, 1)'}
+          strokeOpacity={0.8}
+          strokeWeight={2}
+          fillColor={'#eeefb7ff'}
+          fillOpacity={0.35}
+          editable={false}
+          draggable={false}
+        />
       </Map>
       </div>
     </APIProvider>
