@@ -25,9 +25,11 @@ function Mainframe(){
         } 
     ];
     const [selectedOption, setSelectedOption] = useState(0); // Initial selected option
+    const [selectedInfo, setSelectedInfo] = useState(JSON.stringify(choices[0]));
 
     const handleChange = (event) => {
         setSelectedOption(event.target.value);
+        setSelectedInfo(JSON.stringify(choices[event.target.value]));
     };
 
 
@@ -41,7 +43,7 @@ function Mainframe(){
         }
         </Stack>
         <hr></hr>
-        <MyHikingMap csv={choices[selectedOption].file} mark={choices[selectedOption].pos}/>
+        <MyHikingMap info={selectedInfo}/>
         <hr></hr>
         <h4><a href={choices[selectedOption].alltrails}>More on Alltrails ...</a></h4>
         <p><a href="https://kcfamilyjourney.github.io/home/">Home</a> | <a href="https://forms.gle/ErqZysKrBFxnL5SV7">Contact Us</a></p>

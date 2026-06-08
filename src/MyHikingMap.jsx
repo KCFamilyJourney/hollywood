@@ -14,7 +14,7 @@ const HikingRoute = ({ path }) => {
     const polyline = new google.maps.Polyline({
       path: path,
       geodesic: true,
-      strokeColor: 'rgba(34, 23, 233, 0.43)', // Red for the trail
+      strokeColor: 'rgba(34, 23, 233, 0.43)', // blue for the trail
       strokeOpacity: 1.0,
       strokeWeight: 3,
     });
@@ -30,33 +30,30 @@ const MyHikingMap = (props) => {
 
   const center = { lat: 34.135006882756805, lng: -118.32150243918272 };//34.135006882756805, -118.32150243918272
 
-  const trailPoints = [
-    { lat: 34.117747030034806, lng: -118.32982868784912 }, // Example point 1
-    { lat: 34.12101563845949, lng: -118.32697481763309 }, // Example point 2
-  ];
+  const trailPoints = [];
 
   const [trailData, setTrailData] = useState(null);
-  const [trailCoordinates, setTrailCoordinates] = useState([
-    { lat: 34.117747030034806, lng: -118.32982868784912 }, // Example point 1
-    { lat: 34.12101563845949, lng: -118.32697481763309 }, // Example point 2
-  ]);
+  const [trailCoordinates, setTrailCoordinates] = useState([]);
+  const [mark, setMark] = useState({});
 
   useEffect(() => {
-  console.log(`csv: ${props.csv} mark: ${JSON.stringify(props.mark.lat)}`);
-  if(props.csv) {
-  fetch(props.csv)
-    .then(response => response.text())
-    .then(csvText => {
-      Papa.parse(csvText, {
-        header: true,
-        complete: (result) => {
-          //console.log(result.data)
-          setTrailData(result.data);
-        },
-      });
-    });
-  }
-}, [props.csv]);
+    const info = JSON.parse(props.info);
+    setMark(info.pos);
+    console.log(`csv: ${info.file} mark: ${JSON.stringify(info.pos)}`);
+    if(info.file) {
+      fetch(info.file)
+        .then(response => response.text())
+        .then(csvText => {
+          Papa.parse(csvText, {
+            header: true,
+            complete: (result) => {
+              //console.log(result.data)
+              setTrailData(result.data);
+            },
+          });
+        });
+    }
+  }, [props.info]);
 
 useEffect(() => {
   trailPoints.splice(0, trailPoints.length);
@@ -78,7 +75,7 @@ return (
         mapId="f77567173107e0424cdfdbdc"
       >
         {trailCoordinates.length > 0 && <HikingRoute path={trailCoordinates} />}
-        <AdvancedMarker position={{ lat: props.mark.lat, lng: props.mark.lng}} />
+        <AdvancedMarker position={{ lat: mark.lat, lng: mark.lng}} />
         <Circle
           center={center}
           radius={150} // Radius in meters
